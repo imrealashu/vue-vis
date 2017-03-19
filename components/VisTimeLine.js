@@ -1,6 +1,6 @@
 var VisTimeLine = Vue.extend({
   template: '<div></div>',
-  props: ['id', 'items', 'groups', 'options'],
+  props: ['items', 'groups', 'options'],
 
   mounted: function () {
     var items = new vis.DataSet(this.items);
