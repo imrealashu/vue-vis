@@ -1,13 +1,12 @@
-	var VisTimeLine = Vue.extend({
-		template: '<div id="visualization"></div>',
-		props: ['visData'],
+var VisTimeLine = Vue.extend({
+  template: '<div></div>',
+  props: ['items', 'groups', 'options'],
 
-		ready: function () {
-
-			var container = document.getElementById('visualization');
-			  var items = new vis.DataSet(this.visData);
-			  var options = {};
-			  var timeline = new vis.Timeline(container, items, options);
-		}
-	});
-	Vue.component('vis-time-line',VisTimeLine);
+  mounted: function () {
+    var items = new vis.DataSet(this.items);
+    var options = this.options;
+    var groups = this.groups;
+    var timeline = new vis.Timeline(this.$el, items, groups, options);
+  }
+});
+Vue.component('vis-time-line', VisTimeLine);
